@@ -35,8 +35,7 @@ const listSchema = mongoose.Schema({
 
 var List = mongoose.model("List", listSchema);
 p1.then(
-
- const todo = async () => {
+  todo = async () => {
   // const fectchedItems=await Item.find();
   // console.log("fetched successfully")
   // fectchedItems.forEach(function(ite){
@@ -163,8 +162,8 @@ p1.then(
   // app.get("/about",function(req,res){
   // 		res.render("about");
   // })
-};
-);
+}
+)
 todo();
 app.listen(3000, function () {
   console.log("Server started on port 3000");
