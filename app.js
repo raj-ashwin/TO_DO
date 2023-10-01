@@ -6,7 +6,14 @@ const e = require("express");
 const app = express();
 const _=require("lodash");
 
-mongoose.connect("mongodb+srv://ashwin-raj:ashwin%402004@cluster0.fnd1xhg.mongodb.net/?retryWrites=true&w=majority");
+const connect=async()=>{
+  try{
+    await mongoose.connect("mongodb+srv://ashwin-raj:ashwin%402004@cluster0.fnd1xhg.mongodb.net/?retryWrites=true&w=majority");
+  }catch(error){
+    console.log("error connecting to database",error)
+  }
+ 
+}
 // &w=majority
 const itemSchema = {
   name: String,
