@@ -6,14 +6,11 @@ const e = require("express");
 const app = express();
 const _=require("lodash");
 
-const connect=async()=>{
-  try{
-    await mongoose.connect("mongodb+srv://ashwin-raj:ashwin%402004@cluster0.fnd1xhg.mongodb.net/?retryWrites=true&w=majority");
-  }catch(error){
-    console.log("error connecting to database",error)
-  }
- 
-}
+
+const p1=new Promise((resolve,reject)=>{
+  resolve(
+    mongoose.connect("mongodb+srv://ashwin-raj:ashwin%402004@cluster0.fnd1xhg.mongodb.net/?retryWrites=true&w=majority"));
+});
 // &w=majority
 const itemSchema = {
   name: String,
@@ -37,7 +34,7 @@ const listSchema = mongoose.Schema({
 });
 
 var List = mongoose.model("List", listSchema);
-
+p1.then();
 const todo = async () => {
   // const fectchedItems=await Item.find();
   // console.log("fetched successfully")
